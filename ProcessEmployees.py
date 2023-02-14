@@ -22,27 +22,23 @@ employee_dict = {}
 bonus = "Marketing"
 
 for emp in employees:
-    if emp[3] in bonus:
+    # check if the employee fits the search criteria
+    if emp[3] == bonus and emp[4] == "CSR":
         name = str(emp[1]) + ' ' + str(emp[2])
         dep = emp[3]
-        salary = emp[5]
-        pb = .1
-        new_sal = (float(salary) * float(pb)) + float(salary)
+        salary = float(emp[5])
+        new_salary = format(salary * 1.1, '.2f')
 
-    # check if the employee fits the search criteria
-        print()
-        print('=========================================')
-        print()
-        print("Name: ", name)
-        print("Old Salarr: ", salary)
+        employee_dict[name] = new_salary
 
-        employee_dict = {'Name': name,
-                         "New Salary": new_sal}
+        print(f"Manager Name: {name} Current Salary: ${salary}")
 
-        print()
-        for k, v in employee_dict.items():
-            print(k + ":", v)
         # print(employee_dict)
-
+print()
+print('=========================================')
+print()
 
 # iternate through the dictionary and print out the key and value as per printout
+for n in employee_dict:
+    print(f'Manager Name: {n} New Salary: ${employee_dict[n]}')
+print()
